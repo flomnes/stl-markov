@@ -10,7 +10,7 @@ private:
 public:
   MarkovChain(const std::vector<std::vector<double>>& probabilities, unsigned state = 0) : state{state} {
     checkSize(probabilities);
-    gen.reserve(sizeof(probabilities));
+    gen.reserve(probabilities.size());
     for(size_t ii = 0; ii < probabilities.size(); ii++) {
       const std::vector<double>& p = probabilities[ii];
       gen[ii] = std::discrete_distribution<int>(p.begin(), p.end());
